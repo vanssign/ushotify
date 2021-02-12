@@ -5,7 +5,7 @@ var axios=require("axios");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  axios.get('http://localhost:3000/stats')
+  axios.get('https://ushotify.herokuapp.com/stats')
   .then((data)=>{
     var shortUrl=data.data[0].short;
     var longUrl=data.data[0].full;
