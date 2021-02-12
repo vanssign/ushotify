@@ -1,6 +1,13 @@
 body {
   padding: 50px;
-  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-a { color: hsl(228, 45%, 44%); }
+a {
+  color: hsl(228, 45%, 44%);
+}

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div(class='container')
+  div(class='container-fluid')
    img(src='images/favicon-32x32.png')
    span(class='font-weight-bolder') #{title}
    div(class='row d-flex align-items-center')
@@ -9,28 +9,31 @@ block content
      p(class='lead font-weight-bolder') More than just shorter links
      p(class='display-3') Get insights 
      p how your links are performing.
-
+     
     div(class='col-12 col-md-7')
-     img(src='images/illustration-working.svg')
+     img(src='images/illustration-working.svg', class='img-fluid')
 
-   div(class='text-center my-4 p-4')
+   div(class='text-center my-2 p-4')
     div(class='row p-4')
      div(class='col-11')
       input(placeholder='Enter your Link', type='text', class='form-control')
      div(class='col-1')
       button(type="submit",class='btn btn-info') Shorten
 
-   div(class='text-center p-4')   
-    h3 Recent Shortened Links
-     div(class='row p-4')
+   div(class='text-center')   
+    h3 Recent Links
+     div(class='row p-3 text-secondary')
       div(class='col')
-       h5 Link
+       img(src='images/icon-detailed-records.svg')
+       h5(class='p-2') Link
         p #{longUrl}
       div(class='col')
-       h5 Short Link
-        p https://ushotify.herokuapp.com/su/#{shortUrl}
+       img(src='images/icon-fully-customizable.svg')
+       h5(class='p-2') Link Code
+        p #{shortUrl}
       div(class='col')
-       h5 No. of Clicks
+       img(src='images/icon-brand-recognition.svg')
+       h5(class='p-2') Clicks
         p #{clicks}
   
    

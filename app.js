@@ -13,7 +13,7 @@ var redirectRouter = require ("./routes/redirects")
 var app = express();
 
 //mongo connection
-const mongoUrl = 'mongodb+srv://vanssign:mandysandy1718@cluster0.08ywr.mongodb.net/ushotify?retryWrites=true&w=majority';
+// var mongoUrl=
 const connect = mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
