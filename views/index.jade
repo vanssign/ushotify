@@ -1,5 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='container')
+   img(src='images/favicon-32x32.png')
+   span(class='font-weight-bolder') #{title}
+   div(class='row d-flex align-items-center')
+    div(class='col-12 col-md-5')
+     p(class='lead font-weight-bolder') More than just shorter links
+     p(class='display-3') Get insights 
+     p how your links are performing.
+
+    div(class='col-12 col-md-7')
+     img(src='images/illustration-working.svg')
+
+   div(class='text-center my-4 p-4')
+    div(class='row p-4')
+     div(class='col-11')
+      input(placeholder='Enter your Link', type='text', class='form-control')
+     div(class='col-1')
+      button(type="submit",class='btn btn-info') Shorten
+
+   div(class='text-center p-4')   
+    h3 Recent Shortened Links
+     div(class='row p-4')
+      div(class='col')
+       h5 Link
+        p #{longUrl}
+      div(class='col')
+       h5 Short Link
+        p https://ushotify.herokuapp.com/su/#{shortUrl}
+      div(class='col')
+       h5 No. of Clicks
+        p #{clicks}
+  
+   
