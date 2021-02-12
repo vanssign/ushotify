@@ -5,7 +5,7 @@ var axios = require("axios");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  axios.get("https://ushotify.herokuapp.com/stats").then((data) => {
+  axios.get("https://ushotify.herokuapp.com/api/stats").then((data) => {
     var shortUrl = data.data[data.data.length - 1].short;
     var longUrl = data.data[data.data.length - 1].full;
     var clicks = data.data[data.data.length - 1].clicks;
@@ -16,7 +16,8 @@ router.get("/", function (req, res, next) {
       clicks: clicks,
       newGenUrl: "",
     });
-  });
+  })
+  .catch((err)=>next(err));
 });
 
 router.post("/", function (req, res, next) {
@@ -25,7 +26,7 @@ router.post("/", function (req, res, next) {
       console.log(req.body);
       if (req.body.fromIndex == "true") {
         var newGenUrl = url.short;
-        axios.get("https://ushotify.herokuapp.com/stats").then((data) => {
+        axios.get("https://ushotify.herokuapp.com/api/stats").then((data) => {
           var shortUrl = data.data[data.data.length - 1].short;
           var longUrl = data.data[data.data.length - 1].full;
           var clicks = data.data[data.data.length - 1].clicks;
