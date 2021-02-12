@@ -1,32 +1,42 @@
 extends layout
 
 block content
-  div(class='container-fluid')
-   img(src='images/favicon-32x32.png')
-   span(class='font-weight-bolder') #{title}
+  div(class='container text-center text-lg-left')
+   div(class='text-left p-4 font-2em')
+    img(src='images/favicon-32x32.png')
+    span(class='font-weight-bolder') #{title}
    div(class='row d-flex align-items-center')
-    div(class='col-12 col-lg-4')
-     p(class='lead font-weight-bolder') More than just shorter links
+    div(class='col-12 col-lg-5')
+     p(class='lead font-3em') More than just
+      span(class='text-info')  shorter links
      p(class='display-3') Get insights 
-     p(class="font-weight-bolder") how your links are performing.
+     p(class="font-2em") how your links are performing.
      
-    div(class='col-12 col-lg-8')
+    div(class='col-12 col-lg-7')
      img(src='images/illustration-working.svg', class='img-fluid')
 
-   div(class='text-center my-2 p-4')
-    div(class='row p-4')
-     div(class='col-11')
-      input(placeholder='Enter your Link', type='text', class='form-control')
-     div(class='col-1')
-      button(type="submit",class='btn btn-info') Shorten
+   div(class='text-center pt-4')
+    form(method='post',action="/")
+     input(name='fromIndex', value='true',type='hidden')
+     div(class='row p-4')
+      div(class='col-11')
+       input(id='longUrlTxt', placeholder='Enter your Link', name='full', type='text', class='form-control')
+      div(class='col-1')
+       input(type="submit", class='btn btn-info', value='Shorten')
+   div(class='text-center')
+      - if (newGenUrl!="")
+           span(class='text-secondary font-weight-bolder') Your Link: 
+           span(class='text-info') http://ushotify.herokuapp.com/su/#{newGenUrl}
+      - else span         
 
-   div(class='text-center')   
+   div(class='text-center')
     h3 Recent Links
      div(class='row p-3 text-secondary')
       div(class='col')
        img(src='images/icon-detailed-records.svg')
        h5(class='p-2') Link
-        p #{longUrl}
+        p 
+         a(href=longUrl) longUrl
       div(class='col')
        img(src='images/icon-fully-customizable.svg')
        h5(class='p-2') Link Code
@@ -35,5 +45,3 @@ block content
        img(src='images/icon-brand-recognition.svg')
        h5(class='p-2') Clicks
         p #{clicks}
-  
-   
