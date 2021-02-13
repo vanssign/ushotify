@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div(class='container text-center text-lg-left')
+  div(class='text-center text-lg-left')
    div(class='text-left p-4 font-2em')
     img(src='images/favicon-32x32.png')
     span(class='font-weight-bolder') #{title}
@@ -15,18 +15,18 @@ block content
     div(class='col-12 col-lg-7')
      img(src='images/illustration-working.svg', class='img-fluid')
 
-   div(class='text-center pt-4')
+   div(class='text-center py-4')
     form(method='post',action="/")
      input(name='fromIndex', value='true',type='hidden')
-     div(class='row p-4')
-      div(class='col-11')
+     div(class='row')
+      div(class='col-12 col-lg-10')
        input(id='longUrlTxt', placeholder='Enter your Link', name='full', type='text', class='form-control')
-      div(class='col-1')
-       input(type="submit", class='btn btn-info', value='Shorten')
+      div(class='col-12 col-lg-2')
+       input(type="submit", class='btn btn-info form-control', value='Shorten')
    div(class='text-center')
       - if (newGenUrl!="")
            span(class='text-secondary font-weight-bolder') Your Link: 
-           span(class='text-info') http://ushotify.herokuapp.com/su/#{newGenUrl}
+           a(class='text-info') ushotify.herokuapp.com/su/#{newGenUrl}
       - else span         
 
    div(class='text-center')
