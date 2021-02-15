@@ -23,25 +23,38 @@ block content
        input(id='longUrlTxt', placeholder='Enter your Link', name='full', type='text', class='form-control')
       div(class='col-12 col-lg-2')
        input(type="submit", class='btn btn-info form-control', value='Shorten')
-   div(class='text-center')
+   div(class='text-center font-weight-bolder lead')
       - if (newGenUrl!="")
            span(class='text-secondary font-weight-bolder') Your Link: 
            a(class='text-info') ushotify.herokuapp.com/su/#{newGenUrl}
-      - else span         
+      - else span    
 
    div(class='text-center')
-    h3 Recent Links
-     div(class='row p-3 text-secondary')
-      div(class='col')
-       img(src='images/icon-detailed-records.svg')
-       h5(class='p-2') Link
-        p 
+    div(class='row')
+     div(class='col')
+      h4 Latest Link
+      div(class='row p-3 text-secondary')
+       div(class='col')
+        img(src='images/icon-detailed-records.svg')
+        h5(class='p-2') Link 
          a(href=longUrl) longUrl
-      div(class='col')
-       img(src='images/icon-fully-customizable.svg')
-       h5(class='p-2') Link Code
-        p #{shortUrl}
-      div(class='col')
-       img(src='images/icon-brand-recognition.svg')
-       h5(class='p-2') Clicks
-        p #{clicks}
+       div(class='col')
+        img(src='images/icon-fully-customizable.svg')
+        h5(class='p-2') Link Code
+         p #{shortUrl}
+       div(class='col')
+        img(src='images/icon-brand-recognition.svg')
+        h5(class='p-2') Clicks
+         p #{clicks}
+
+   div
+    p(class="lead") Redirect links are of format ushotify.herokuapp.com/su/
+     span(class="text-info") :shortCode
+    p(class="font-weight-bolder") API EndPoints relative to route https://ushotify.herokuapp.com
+     p POST at / with req.body { full:"yourlink.com" } gives response {"short":"shortCode","clicks":0,"_id":"mongoDB ID","full":"yourlink.com","createdAt":"date and time","updatedAt":"date and time","__v":version }
+     p GET at  /api/stats/:shortCode  gives response {"short":"shortCode","clicks":0,"_id":"mongoDB ID","full":"yourlink.com","createdAt":"date and time","updatedAt":"date and time","__v":version }
+     p GET at  /api/stats  gives array of all the JSON of the format /api/stats/:shortCode
+
+      
+
+
