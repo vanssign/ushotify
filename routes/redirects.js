@@ -4,9 +4,9 @@ var Urls = require("../models/urls");
 var axios=require("axios")
 
 router.get("/:shortId", function (req, res, next) {
-  Urls.findOne({ short: req.params.shortId })
+  Urls.findOneAndUpdate({ short: req.params.shortId },{ $inc: { clicks: 1}},{ new: true } )
     .then((url) => {
-      if (url != null) {
+      if (url != null) {({})
         res.redirect(url.full);
         res.end();
       } else res.redirect("/");
